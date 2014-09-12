@@ -1,0 +1,14 @@
+This is the legacy extension for the videogallery (version < 5.x or legacy fallback)
+* import yt_video class from doc folder
+* be sure that the permissions for the anonymous role is setted correctly
+* activate the extension in the siteaccess.ini.append.php (override oder siteaccess)
+* change RewriteRule in vhost-config to enable the fonts-folder
+    RewriteRule ^/extension/[^/]+/design/[^/]+/(stylesheets|flash|fonts|images|lib|javascripts?)/.* - [L]
+* insert external youtube api in the head
+    <script src="https://www.youtube.com/iframe_api"></script>
+* create a project on google developer console for the gallery, configure
+    https://console.developers.google.com/project and add the key in scvideogallery/design/standard/javascript/sc-video-gallery.js
+    at line 54 (ytApi.key)
+
+
+
