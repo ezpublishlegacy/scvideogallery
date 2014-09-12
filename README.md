@@ -28,4 +28,6 @@ Installation
 configure the project and add the generated key in scvideogallery/design/standard/javascript/sc-video-gallery.js
 for the ytApi.key (line 54), compress if needed and then change desgin.ini
 
+Best way is to include the extension as a git-submodule. Feel free to contact me.
+
 
