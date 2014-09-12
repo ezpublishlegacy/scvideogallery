@@ -28,5 +28,3 @@ configure the project and add the generated key in scvideogallery/design/standar
 for the ytApi.key (line 54)
 
 
-
-
