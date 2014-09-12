@@ -26,7 +26,23 @@ Installation
 * be sure, that *jQuery is loaded before the sc-video-gallery.js*
 * create a project on [google developer console](https://console.developers.google.com/project) for the gallery,
 configure the project and add the generated key in scvideogallery/design/standard/javascript/sc-video-gallery.js
-for the ytApi.key (line 54), compress if needed and then change desgin.ini
+for the ytApi.key (line 54), compress if needed and then change desgin.in
+* clear cache
+
+How to use
+----------
+
+To reference a video gallery insert an anchor element in the administration interface. Choose the class sc-video-starter
+from the dropdown. In case of youtube gallery insert the raw link as https, for instance:
+https://www.youtube.com/watch?v=KFkwUtF4h4s&index=3&list=PL_yvcCz5JdIjB0YJiDFIYksaHUnAMP5Q5
+Notice the following pattern in the url:
+* /watch
+* GET parameter:
+** v
+** index
+** list
+To insert a yt_video content object simply reference this object. The video list is built from the video objects in this
+folder.
 
 Best way is to include the extension as a git-submodule. Feel free to contact me.
 
