@@ -21,7 +21,7 @@ Installation
   RewriteRule ^/extension/[^/]+/design/[^/]+/(stylesheets|flash|fonts|images|lib|javascripts?)/.* - [L]
   (legacy VHost-Config)
 * insert external youtube api in the head
-        <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 * be sure, that jQuery is loaded before the sc-video-gallery.js
 * create a project on [google developer console](https://console.developers.google.com/project) for the gallery,
 configure the project and add the generated key in scvideogallery/design/standard/javascript/sc-video-gallery.js
