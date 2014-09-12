@@ -3,7 +3,7 @@ scvideogallery
 What is this?
 -------------
 
-This is an eZ Publish extension (legacy) for a video gallery. It is tested on 4.7 and in 5.3 with legacy fallback.
+This is an eZ Publish extension (legacy) for a video gallery. It is tested on 4.7 and 5.3 with legacy fallback.
 A symfony pendant will follow.
 
 Features
@@ -14,7 +14,7 @@ only metadatas for further functionalities (e.g. a longdescription for screenrea
 Installation
 ------------
 
-* import yt_video class from doc folder in the eZ backend (Setup -> Classes)
+* import yt_video class from the package in the doc-folder in the eZ backend (Setup -> Classes)
 * be sure that the permissions for the anonymous role is setted correctly
 * activate the extension in the siteaccess.ini.append.php (override oder siteaccess)
 * change RewriteRule in vhost-config to enable the fontawesome (do not include it twice)
@@ -34,13 +34,12 @@ How to use
 
 To reference a video gallery insert an anchor element in the administration interface. Choose the class sc-video-starter
 from the dropdown. In case of youtube gallery insert the raw link as https, for instance:
-https://www.youtube.com/watch?v=KFkwUtF4h4s&index=3&list=PL_yvcCz5JdIjB0YJiDFIYksaHUnAMP5Q5
+>https://www.youtube.com/watch?v=KFkwUtF4h4s&index=3&list=PL_yvcCz5JdIjB0YJiDFIYksaHUnAMP5Q5
+
 Notice the following pattern in the url:
 * /watch
-* GET parameter:
-** v
-** index
-** list
+* GET parameter: v, index, list
+
 To insert a yt_video content object simply reference this object. The video list is built from the video objects in this
 folder.
 
