@@ -34,7 +34,7 @@ How to use
 
 To reference a video gallery insert an anchor element in the administration interface. Choose the class sc-video-starter
 from the dropdown. In case of youtube gallery insert the raw link as https, for instance:
->https://www.youtube.com/watch?v=KFkwUtF4h4s&index=3&list=PL_yvcCz5JdIjB0YJiDFIYksaHUnAMP5Q5
+>https://www.youtube.com/watch?v=videoId&index=3&list=playlistId
 
 Notice the following pattern in the url:
 * /watch
