@@ -44,7 +44,7 @@ var SC = {
             de : {
                 'short-description' : 'Kurzbeschreibung des Videos',
                 'close-gallery'     : 'Videogalerie schließen',
-                'long-description'  : 'Beschreibung des Videos für ScreenReader'
+                'long-description'  : 'Textfassung des Videos'
             }
         },
         lang : 'de'
