@@ -27,10 +27,12 @@ Installation
 * create a project on [google developer console](https://console.developers.google.com/project) for the gallery,
 configure the project and add the generated key in scvideogallery/design/standard/javascript/sc-video-gallery.js
 for the ytApi.key (line 54), compress if needed and then change desgin.ini
-* bootstrap the jQuery plugin:
+* bootstrap the jQuery plugin in an appropriate js-file:
     $(function(){
-        $('.sc-video-starter').scVideoGallery();
+        $('.sc-video-starter').scVideoGallery(options);
     })
+  Note: options is a native javascript object. Here it is possible to override each entry of the defaults-object
+  (e.g. moduleUrl, translations, ...).
 * clear cache
 
 How to use
