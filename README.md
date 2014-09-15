@@ -28,9 +28,9 @@ Installation
 configure the project and add the generated key in scvideogallery/design/standard/javascript/sc-video-gallery.js
 for the ytApi.key (line 54), compress if needed and then change desgin.ini
 * bootstrap the jQuery plugin:
->$(function(){
-     $('.sc-video-starter').scVideoGallery();
- })
+    $(function(){
+        $('.sc-video-starter').scVideoGallery();
+    })
 * clear cache
 
 How to use
