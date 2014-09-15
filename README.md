@@ -26,7 +26,11 @@ Installation
 * be sure, that *jQuery is loaded before the sc-video-gallery.js*
 * create a project on [google developer console](https://console.developers.google.com/project) for the gallery,
 configure the project and add the generated key in scvideogallery/design/standard/javascript/sc-video-gallery.js
-for the ytApi.key (line 54), compress if needed and then change desgin.in
+for the ytApi.key (line 54), compress if needed and then change desgin.ini
+* bootstrap the jQuery plugin:
+>$(function(){
+     $('.sc-video-starter').scVideoGallery();
+ })
 * clear cache
 
 How to use

@@ -487,11 +487,6 @@ var SC = {
             });
         });
     };
-
-    $(function(){
-        // bootstrap the plugin
-        $('.sc-video-starter').scVideoGallery();
-    })
 })(jQuery)
 
 // fallback function after loading the player api
