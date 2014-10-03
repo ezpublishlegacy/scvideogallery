@@ -23,7 +23,12 @@ $startVideo     = null; // dataMap of the requested video
 $startYtId      = null; // youtube-id of the requested video
 $parentNodeId   = (int)$node->attribute('parent_node_id');
 
-$videos = eZContentObjectTreeNode::subTreeByNodeID(false, $parentNodeId);
+$filterArray    = array(
+    'ClassFilterType'          => 'include',
+    'ClassFilterArray'         => array('yt_video')
+);
+
+$videos = eZContentObjectTreeNode::subTreeByNodeID($filterArray, $parentNodeId);
 $sortedMaps = array(); // end map
 $maps = array(); // array for sorting, keys are the keywords
 $maps['noKeyword'] = array(); // unsorted videos
