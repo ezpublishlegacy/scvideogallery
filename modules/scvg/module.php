@@ -6,3 +6,7 @@ $ViewList['playlist'] = array(
     'functions'         => 'playlist',
     'params'            => array('node_url')
 );
+$ViewList['apikey'] = array(
+    'script'            => 'apikey.php',
+    'functions'         => 'apikey'
+);
