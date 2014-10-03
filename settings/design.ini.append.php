@@ -10,7 +10,7 @@ JavaScriptList[]=jquery-2.1.1.min.js
 JavaScriptList[]=jquery-migrate-1.2.1.min.js
 JavaScriptList[]=jquery.mousewheel.min.js
 JavaScriptList[]=perfect-scrollbar.min.js
-JavaScriptList[]=sc-video-gallery.js
+JavaScriptList[]=sc-video-gallery.min.js
 
 [StylesheetSettings]
 CSSFileList[]=font-awesome.min.css
