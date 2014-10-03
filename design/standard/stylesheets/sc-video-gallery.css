@@ -47,7 +47,7 @@
 }
 
 .rgba #sc-layer{
-    background: rgba(0, 0, 0, 0.9) url('extension/scvideogallery/design/standard/images/ajax-loader.gif') no-repeat center;
+    background: rgba(0, 0, 0, 0.9) url('../images/ajax-loader.gif') no-repeat center;
 }
 
 .rgba #sc-layer.simple{
