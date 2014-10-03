@@ -46,8 +46,8 @@ Notice the following pattern in the url:
 * /watch
 * GET parameter: v, index, list
 
-To insert a yt_video content object simply reference this object. The video list is built from the video objects in this
-folder.
+To insert a gallery from a local yt_video-content-object simply reference this object from the editorial interface. The
+video list is built from the video objects in folder the referenced object is situated.
 
 Best way is to include the extension as a git-submodule. Feel free to contact me.
 
