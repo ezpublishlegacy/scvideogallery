@@ -52,6 +52,7 @@ var SC = {
     var ytApiUrl = 'https://www.googleapis.com/youtube/v3/';
     var ytApi   = {
         'key'           : 'insert_the_google_project_key_here',
+        'key'           : 'AIzaSyCZqm0LXDXr6eviOzzv7Z0EvmM6WaRsNaM',
         'part'          : 'snippet',
         'maxResults'    : 15
     };
@@ -475,9 +476,14 @@ var SC = {
     $.fn.scVideoGallery = function(options) {
         // the default-object will be overridden
         $.extend( defaults, options );
+        if (this.length > 0) {
+            $.get(
+                '/scvg/apikey',
+                function(apiKey) {
+                    defaults.ytPlayerVars.key = apiKey;
+            });
+        }
         return this.each(function(){
-            //console.log('bind to...');
-            //console.log(this);
             var $this   = $(this);
             $this.on('click.' + defaults.eventPrefix, {'url' : $this.prop('href')}, function(e){
                 e.preventDefault();
