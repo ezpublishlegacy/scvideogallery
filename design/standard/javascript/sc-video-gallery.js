@@ -51,8 +51,6 @@ var SC = {
     };
     var ytApiUrl = 'https://www.googleapis.com/youtube/v3/';
     var ytApi   = {
-        'key'           : 'insert_the_google_project_key_here',
-        'key'           : 'AIzaSyCZqm0LXDXr6eviOzzv7Z0EvmM6WaRsNaM',
         'part'          : 'snippet',
         'maxResults'    : 15
     };
@@ -480,7 +478,7 @@ var SC = {
             $.get(
                 '/scvg/apikey',
                 function(apiKey) {
-                    defaults.ytPlayerVars.key = apiKey;
+                    ytApi.key = apiKey;
             });
         }
         return this.each(function(){
