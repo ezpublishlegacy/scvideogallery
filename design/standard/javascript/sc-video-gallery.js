@@ -332,6 +332,7 @@ var SC = {
         // possible values for status: toggle, video, ld, disable
         // the toggle parameter indicates the toggeling of the containers, only the navigation button otherwise
         toggleLongDescription : function(status, toggle) {
+//          todo: refactor, to complex
             $this = this;
             if ($this.length == 0) {
                 $this = $(domElements.navLongDescGeneral);
@@ -347,11 +348,11 @@ var SC = {
                     toggle = false;
                     break;
                 case 'ld':
-                    if (SC.specialStatus !== null) {
-                        return;
+                    if (SC.specialStatus == 'desc') {
+                        methods.toggleDesc();
                     }
-                    $this.removeClass('hidden ' + domElements.navLongDesc)
-                        .addClass(domElements.navVideo + ' active');
+                    $this   .removeClass('hidden ' + domElements.navLongDesc)
+                            .addClass(domElements.navVideo + ' active');
                     SC.specialStatus = 'ld';
                     if (SC.playerStatus == 1 || SC.playerStatus == 3) {
                         SC.player.pauseVideo();
