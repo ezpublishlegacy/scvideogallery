@@ -310,40 +310,47 @@ var SC = {
         },
 
         toggleDesc : function() {
-            var $navItem = $(domElements.navDescIcon, domElements.topNavigation),
-                toggle = false;
-            if (SC.specialStatus === null){
-                toggle = true;
-                SC.specialStatus = 'desc';
-            } else if (SC.specialStatus == 'desc') {
-                toggle = true;
-                SC.specialStatus = null;
+            var $navItem    = $(domElements.navDescIcon, domElements.topNavigation);
+            switch(SC.specialStatus) {
+                case null:
+                    SC.specialStatus = 'desc';
+                    break;
+                case 'desc':
+                    SC.specialStatus = null;
+                    break;
+                case 'ld':
+                    methods.toggleLongDescription.apply($(), ['video', true]);
+                    SC.specialStatus = 'desc';
+                    break;
             }
+            $navItem.toggleClass('active');
+            $(domElements.descContainer).toggle('fast');
 
-            if (toggle) {
-                $navItem.toggleClass('active');
-                $(domElements.descContainer).toggle('fast');
-            }
         },
 
-        // this is the long-desc-switch (jquery)
+        // this is the long-desc-switch (jquery-object)
         // possible values for status: toggle, video, ld, disable
         // the toggle parameter indicates the toggeling of the containers, only the navigation button otherwise
         toggleLongDescription : function(status, toggle) {
+            $this = this;
+            if ($this.length == 0) {
+                $this = $(domElements.navLongDescGeneral);
+            }
             if (!status || status == 'toggle') {
-                status = (this.hasClass(domElements.navLongDesc)) ? 'ld' : 'video';
+                status = ($this.hasClass(domElements.navLongDesc)) ? 'ld' : 'video';
             }
             toggle = (toggle != undefined) ? toggle : true;
+
             switch ( status) {
                 case 'disable':
-                    this.addClass('hidden');
+                    $this.addClass('hidden');
                     toggle = false;
                     break;
                 case 'ld':
                     if (SC.specialStatus !== null) {
                         return;
                     }
-                    this.removeClass('hidden ' + domElements.navLongDesc)
+                    $this.removeClass('hidden ' + domElements.navLongDesc)
                         .addClass(domElements.navVideo + ' active');
                     SC.specialStatus = 'ld';
                     if (SC.playerStatus == 1 || SC.playerStatus == 3) {
@@ -351,7 +358,7 @@ var SC = {
                     }
                     break;
                 case 'video':
-                    this.removeClass('hidden active ' + domElements.navVideo)
+                    $this.removeClass('hidden active ' + domElements.navVideo)
                         .addClass(domElements.navLongDesc);
                     SC.specialStatus = null;
                     if (SC.playerStatus == 2) {
