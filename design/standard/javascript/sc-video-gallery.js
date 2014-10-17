@@ -170,7 +170,7 @@ var SC = {
                     ytid        = item.id;
                     var text    =data.dataMaps[i]['longdesc'];
                     if (text) {
-                        $longdesc   = $('<div />', { 'class' : 'template long-desc'}).text(text);
+                        $longdesc   = $('<div />', { 'class' : 'template long-desc'}).append(text);
                     }
                 } else {
                     ytid    = item.snippet.resourceId.videoId;
