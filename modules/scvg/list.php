@@ -28,40 +28,43 @@ $filterArray    = array(
 );
 
 $videos = eZContentObjectTreeNode::subTreeByNodeID($filterArray, $parentNodeId);
-$sortedMaps = array(); // end map
+$sortedMaps = array(); // use this map at the end
 $maps = array(); // array for sorting, keys are the keywords
 $maps['noKeyword'] = array(); // unsorted videos
 
 foreach ($videos as $video) {
+
     $nodeId = (int)$video->attribute('node_id');
     // save all relevant data in an array: $map
     $map = array();
     $map['locationId']  = $nodeId;
+    $videoDataMap   = $video->dataMap();
 
-    foreach ($video->dataMap() as $key => $attribute) {
+    foreach ($videoDataMap as $key => $attribute) {
         switch ($key) {
             case 'longdesc':
-                $map[$key]  = nl2br($attribute->content());
+                $map[$key]  = nl2br($attribute->content(), false);
                 break;
 
             case 'keywords':
-                $map[$key]  = $attribute->content()->attribute('keywords');
+                $map[$key]  = $attribute->content()->KeywordArray;
                 break;
 
             default:
-                $attribute->content();
+                $map[$key]  = $attribute->content();
                 break;
             }
-        $map[$key]  = $attribute->content();
     }
 
     if ($nodeId == $startId) {
         $startYtId      = $map['id'];
         $startVideo     = $map;
     } else {
-        $keywords = $map['keywords']->KeywordArray;
+        $keywords = $map['keywords'];
+
         if (count($keywords) > 0) {
-            $key = $keywords[0];
+            $key = $keywords[0]; // first keyword is used for sorting
+
             if (!is_array($maps[$key])) {
                 $maps[$key] = array();
             }
@@ -77,7 +80,8 @@ foreach ($maps as $keywordMap) {
     ksort($keywordMap, SORT_STRING);
 }
 
-$startKeywords  = $startVideo['keywords']->KeywordArray;
+$startKeywords  = $startVideo['keywords'];
+
 //$sortedMaps[]   = $startVideo;
 if (count($startKeywords) > 0) {
     $starterKey = $startKeywords[0];
@@ -92,7 +96,6 @@ if (count($startKeywords) > 0) {
     }
 }
 array_unshift($sortedMaps, $startVideo);
-
 $videoCount = count($sortedMaps);
 $data = array(
     'kind'          => 'shortcut#playlistListResponse',
@@ -113,5 +116,14 @@ $data = array(
 );
 
 header('Content-type: application/json');
-echo json_encode($data);
+echo json_encode($data );
 eZExecution::cleanExit();
+
+function test($var, $quit = true) {
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+    if ($quit) {
+        die();
+    }
+}
