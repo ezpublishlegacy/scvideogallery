@@ -5,12 +5,14 @@
  * Date: 20.08.14
  * Time: 18:02
  */
-
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
 $Module         = $Params['Module'];
 $resultsPerPage = (int)eZINI::instance('scvideo.ini')->variable('Settings', 'ResultsPerPage');
 
 //$Result['content']  = $result;
 //$Result['Module']   = $Module;
+
 $Module = $Params['Module'];
 
 $rawUrl = $Params['node_url'];
