@@ -1,11 +1,12 @@
 scvideogallery
 ==============
-What is this?
--------------
 
 Version
 -------
 1.0.1
+
+What is this?
+-------------
 
 This is an eZ Publish extension (legacy) for a video gallery. It is tested on 4.7 and 5.3 with legacy fallback.
 A symfony pendant will follow.
