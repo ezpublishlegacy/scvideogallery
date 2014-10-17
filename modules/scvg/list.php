@@ -16,7 +16,6 @@ $Module = $Params['Module'];
 $rawUrl = $Params['node_url'];
 $url  = str_replace(array("|", "-"), array("/", "_"), $rawUrl);
 
-
 $node           = eZContentObjectTreeNode::fetchByURLPath($url);
 $startId        = (int)$node->attribute('node_id');
 $startVideo     = null; // dataMap of the requested video
@@ -113,5 +112,6 @@ $data = array(
     )
 );
 
+header('Content-type: application/json');
 echo json_encode($data);
 eZExecution::cleanExit();
