@@ -139,9 +139,10 @@ var SC = {
 
         // items is the data.items.object from eZ or youtube
         insertVideoDetails : function(data) {
+
             var $layer          = $(methods.createLayout()),
                 $navbar         = $('#sc-navigation', $layer),
-                totalResults    = data.pageInfo.totalResults,
+                totalResults    = data.items.length,
                 startIndex      = -1,
                 startMap        = null;
 
@@ -153,6 +154,7 @@ var SC = {
             $(window).on('resize.' + defaults.eventPrefix, function(){
                 methods.resize.apply($layer);
             });
+
             // create videos as sidebar entry
             for( var i = 0; i < totalResults; i++) {
                 var item        = data.items[i],
